@@ -70,9 +70,11 @@ fn printTuple(tuple: anytype) void {
     // parameter. You'll need:
     //
     //     @TypeOf() - takes a value, returns its type.
+    const typeOf = @TypeOf(tuple);
     //
     //     @typeInfo() - takes a type, returns a TypeInfo union
     //                   with fields specific to that type.
+    const typeInfo = @typeInfo(typeOf);
     //
     //     The list of a struct type's fields can be found in
     //     TypeInfo's Struct.fields.
@@ -82,14 +84,14 @@ fn printTuple(tuple: anytype) void {
     //         @typeInfo(Circle).Struct.fields
     //
     // This will be an array of StructFields.
-    const fields = ???;
+    const fields = typeInfo.Struct.fields;
 
     // 2. Loop through each field. This must be done at compile
     // time.
     //
     //     Hint: remember 'inline' loops?
     //
-    for (fields) |field| {
+    inline for (fields, 0..fields.len) |field, i| {
         // 3. Print the field's name, type, and value.
         //
         //     Each 'field' in this loop is one of these:
@@ -117,9 +119,9 @@ fn printTuple(tuple: anytype) void {
         //
         // The first field should print as: "0"(bool):true
         print("\"{s}\"({any}):{any} ", .{
-            field.???,
-            field.???,
-            ???,
+            field.name,
+            field.type,
+            tuple[i],
         });
     }
 }
