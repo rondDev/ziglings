@@ -1,3 +1,13 @@
+# I did this as a sort of challenge for myself
+The idea was to try and complete it in a short amount of time,
+not really a speedrun, just a small challenge.
+
+I started at Tue February 6th 2024 10:12 PM and finished at Wed February 7th 2024 01:26 AM
+
+
+# Original readme down below
+
+
 # Ziglings
 # ⚠️ Ziglings has moved from GitHub to Codeberg!
 
